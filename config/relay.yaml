@@ -1,0 +1,21 @@
+server:
+  bind_address: "0.0.0.0"
+  port: 25
+  ssl_port: 465
+  max_connections: 2000
+  timeout_seconds: 10
+  cert_file: "/etc/ssl/certs/relay.crt"
+  key_file: "/etc/ssl/private/relay.key"
+
+logging:
+  level: "INFO"
+  file: "/var/log/relaymail/relay.log"
+
+storage:
+  path: "/var/spool/relaymail"
+  max_size_mb: 20480
+
+upstream:
+  host: "smtp.example.com"
+  port: 25
+  relay_threads: 4
